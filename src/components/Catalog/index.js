@@ -1,11 +1,12 @@
 import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 import React from "react";
+import Pizza from "./Pizza";
 
 const Catalog = () => {
   const { data, dataLoading } = useQuery(gql`
     {
-      getPizzas {
+      pizzas {
         id
         name
         price {
@@ -21,7 +22,13 @@ const Catalog = () => {
     return null;
   }
 
-  return <div>{data.getPizzas[0].name}</div>;
+  return (
+    <main>
+      {data.pizzas.map((pizza) => (
+        <Pizza data={pizza} key={pizza.id} />
+      ))}
+    </main>
+  );
 };
 
 export default Catalog;
