@@ -3,10 +3,11 @@ import ApolloClient from "apollo-boost";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
+import { GRAPHQL_URL } from "./constants";
 import "./index.css";
 
 const client = new ApolloClient({
-  uri: "http://localhost:4000/graphql"
+  uri: GRAPHQL_URL
 });
 
 ReactDOM.render(

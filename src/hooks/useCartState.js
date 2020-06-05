@@ -4,7 +4,8 @@ export const useCartState = () => {
   const [state, setState] = useState({});
 
   const increment = (id) => {
-    setState({ ...state, [id]: state[id] ? state[id] + 1 : 1 });
+    const newState = { ...state, [id]: state[id] ? state[id] + 1 : 1 };
+    setState(newState);
   };
 
   const decrement = (id) => {

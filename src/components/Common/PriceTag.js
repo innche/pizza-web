@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { CURRENCY_EUR } from "../../constants";
 import { CurrencyContext } from "../../contexts/CurrencyContext";
 
-const PizzaPrice = ({ price }) => {
+export const PriceTag = ({ price }) => {
   const [currrency] = useContext(CurrencyContext);
 
   if (currrency === CURRENCY_EUR) {
@@ -11,4 +11,4 @@ const PizzaPrice = ({ price }) => {
   return <div>{price.priceUSD} $</div>;
 };
 
-export default PizzaPrice;
+export default PriceTag;
