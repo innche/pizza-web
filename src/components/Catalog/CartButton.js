@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
 
 const CartButton = ({ pizzaId }) => {
-  const onCartClick = (pizzaId) => {
-    console.log(`Pizza ${pizzaId} added to cart`);
-  };
+  const [cart, incrementInCart] = useContext(CartContext);
 
   return (
     <div>
-      <button onClick={() => onCartClick(pizzaId)}>Add to cart</button>
+      <span>{cart[pizzaId] ? `${cart[pizzaId]} in the cart` : ""}</span>
+      <button onClick={() => incrementInCart(pizzaId)}>Add to cart</button>
     </div>
   );
 };
