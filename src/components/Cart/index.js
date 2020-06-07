@@ -3,7 +3,8 @@ import { gql } from "apollo-boost";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
-import { CartItem } from "./CartItem";
+import CartItem from "./CartItem";
+import OrderForm from "./OrderForm";
 
 const Cart = () => {
   const { cart } = useContext(CartContext);
@@ -21,12 +22,22 @@ const Cart = () => {
       }
     `,
     {
-      variables: { ids: Object.keys(cart).map((item) => Number.parseInt(item)) }
+      variables: {
+        ids: cart ? Object.keys(cart).map((item) => Number.parseInt(item)) : []
+      }
     }
   );
 
   if (dataLoading || !data) {
     return null;
+  }
+
+  if (cart == null || Object.keys(cart).length === 0) {
+    return (
+      <div>
+        Cart is empty. Pick something in <Link to="/">catalog</Link>!
+      </div>
+    );
   }
 
   return (
@@ -36,6 +47,7 @@ const Cart = () => {
       {data.pizzas.map((pizza, index) => (
         <CartItem data={pizza} key={index} />
       ))}
+      <OrderForm />
     </main>
   );
 };
