@@ -10,7 +10,8 @@ import "./index.css";
 console.log(process.env.REACT_APP_GRAPHQL_URL);
 
 const client = new ApolloClient({
-  uri: process.env.REACT_APP_GRAPHQL_URL
+  uri: process.env.REACT_APP_GRAPHQL_URL,
+  credentials: "include"
 });
 
 ReactDOM.render(
