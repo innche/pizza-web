@@ -66,7 +66,7 @@ const Cart = () => {
           </div>
         </div>
 
-        <div className="cart-item">
+        <div className="cart-item mb5">
           <span className="cart-name f2 lh-title mt0 mb2">Total</span>
           <div className="cart-price">
             <PriceTag
