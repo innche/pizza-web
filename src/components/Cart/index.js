@@ -3,6 +3,7 @@ import { gql } from "apollo-boost";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
+import { PriceTag } from "../Common/PriceTag";
 import CartItem from "./CartItem";
 import "./index.css";
 import OrderForm from "./OrderForm";
@@ -15,6 +16,12 @@ const Cart = () => {
         pizzas(ids: $ids) {
           id
           name
+          price {
+            priceEUR
+            priceUSD
+          }
+        }
+        deliveryPrice {
           price {
             priceEUR
             priceUSD
@@ -51,6 +58,32 @@ const Cart = () => {
         {data.pizzas.map((pizza, index) => (
           <CartItem data={pizza} key={index} />
         ))}
+
+        <div className="cart-item">
+          <span className="cart-name f2 lh-title mt0 mb2">Delivery</span>
+          <div className="cart-price">
+            <PriceTag className="cart-price" price={data.deliveryPrice.price} />
+          </div>
+        </div>
+
+        <div className="cart-item">
+          <span className="cart-name f2 lh-title mt0 mb2">Total</span>
+          <div className="cart-price">
+            <PriceTag
+              className="cart-price"
+              price={{
+                priceEUR: data.pizzas.reduce(
+                  (sum, item) => sum + item.price.priceEUR,
+                  data.deliveryPrice.price.priceEUR
+                ),
+                priceUSD: data.pizzas.reduce(
+                  (sum, item) => sum + item.price.priceUSD,
+                  data.deliveryPrice.price.priceUSD
+                )
+              }}
+            />
+          </div>
+        </div>
         <OrderForm />
       </div>
     </main>
