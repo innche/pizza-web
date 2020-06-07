@@ -3,6 +3,7 @@ import ApolloClient from "apollo-boost";
 import "dotenv/config";
 import React from "react";
 import ReactDOM from "react-dom";
+import "tachyons";
 import App from "./components/App";
 import "./index.css";
 

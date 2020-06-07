@@ -6,12 +6,30 @@ export const QuantityControl = ({ id }) => {
     CartContext
   );
   return (
-    <div>
-      <button onClick={() => decrementInCart(id)}>-</button>
-      <span>{cart[id]}</span>
-      <button onClick={() => incrementInCart(id)}>+</button>
-      <button onClick={() => removeFromCart(id)}>Delete</button>
-    </div>
+    <>
+      <button
+        className="cart-button pa2 ba b--gold bg-gold br3 grow f4"
+        onClick={() => decrementInCart(id)}
+      >
+        -
+      </button>
+      <span> {cart[id]} </span>
+      <button
+        className="cart-button pa2 ba b--gold bg-gold br3 grow f4"
+        onClick={() => incrementInCart(id)}
+      >
+        +
+      </button>
+      <br />
+      <button
+        className="pa2 ba b--transparent bg-transparent grow f4"
+        onClick={() => removeFromCart(id)}
+      >
+        <span role="img" aria-label="remove">
+          🗑️
+        </span>
+      </button>
+    </>
   );
 };
 

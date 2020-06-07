@@ -4,6 +4,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
 import CartItem from "./CartItem";
+import "./index.css";
 import OrderForm from "./OrderForm";
 
 const Cart = () => {
@@ -34,20 +35,24 @@ const Cart = () => {
 
   if (cart == null || Object.keys(cart).length === 0) {
     return (
-      <div>
-        Cart is empty. Pick something in <Link to="/">catalog</Link>!
-      </div>
+      <main className="bg-dark-green">
+        <div className="content bg-white pa4 f3">
+          Cart is empty. Pick something in <Link to="/">catalog</Link>!
+        </div>
+      </main>
     );
   }
 
   return (
-    <main>
-      <Link to="/">&lt;&nbsp;Back to catalog</Link>
-      <h1>Cart</h1>
-      {data.pizzas.map((pizza, index) => (
-        <CartItem data={pizza} key={index} />
-      ))}
-      <OrderForm />
+    <main className="bg-dark-green">
+      <div className="content bg-white pa4">
+        <Link to="/">&lt;&nbsp;Back to catalog</Link>
+        <h1 className="h1 mb5">Cart</h1>
+        {data.pizzas.map((pizza, index) => (
+          <CartItem data={pizza} key={index} />
+        ))}
+        <OrderForm />
+      </div>
     </main>
   );
 };

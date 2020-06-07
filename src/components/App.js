@@ -4,7 +4,6 @@ import { CURRENCY_EUR } from "../constants";
 import { CartContext } from "../contexts/CartContext";
 import { CurrencyContext } from "../contexts/CurrencyContext";
 import { useCartState } from "../hooks/useCartState";
-import "./App.css";
 import Cart from "./Cart";
 import Catalog from "./Catalog";
 import Header from "./Header";

@@ -23,6 +23,7 @@ const OrderForm = () => {
 
   return (
     <form
+      className="mt5"
       onSubmit={(e) => {
         e.preventDefault();
         console.log(
@@ -51,6 +52,7 @@ const OrderForm = () => {
       }}
     >
       <input
+        className="mr3 mb3 pa3 ba b--black bg-lightest-blue"
         type="text"
         placeholder="Name"
         ref={(node) => {
@@ -58,6 +60,7 @@ const OrderForm = () => {
         }}
       />
       <input
+        className="mr3 mb3 pa3 ba b--black bg-lightest-blue"
         type="text"
         placeholder="E-mail"
         ref={(node) => {
@@ -65,13 +68,16 @@ const OrderForm = () => {
         }}
       />
       <input
+        className="mr3 mb3 pa3 ba b--black bg-lightest-blue"
         type="text"
         placeholder="Phone number"
         ref={(node) => {
           phone = node;
         }}
       />
-      <button type="submit">Place order</button>
+      <button className="pa3 ba b--gold bg-gold br3 grow f3" type="submit">
+        Place order
+      </button>
     </form>
   );
 };

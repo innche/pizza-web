@@ -5,10 +5,16 @@ import { CurrencyContext } from "../../contexts/CurrencyContext";
 export const PriceTag = ({ price }) => {
   const [currrency] = useContext(CurrencyContext);
 
-  if (currrency === CURRENCY_EUR) {
-    return <div>{price.priceEUR} €</div>;
-  }
-  return <div>{price.priceUSD} $</div>;
+  return (
+    <div>
+      <span className="f-subheadline">
+        {currrency === CURRENCY_EUR ? price.priceEUR : price.priceUSD}
+      </span>
+      <span className="dib mt2 f2 v-top">
+        {currrency === CURRENCY_EUR ? " €" : " $"}
+      </span>
+    </div>
+  );
 };
 
 export default PriceTag;

@@ -10,7 +10,11 @@ const CurrencyPicker = () => {
   };
 
   return (
-    <select onChange={onChange} value={currency}>
+    <select
+      className="bg-black b--black white b0"
+      onChange={onChange}
+      value={currency}
+    >
       <option value={CURRENCY_EUR}>€</option>
       <option value={CURRENCY_USD}>$</option>
     </select>
