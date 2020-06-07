@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
 
 const CartButton = ({ pizzaId }) => {
-  const [cart, incrementInCart] = useContext(CartContext);
+  const { cart, incrementInCart } = useContext(CartContext);
 
   return (
     <div>

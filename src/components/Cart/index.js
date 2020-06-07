@@ -6,7 +6,7 @@ import { CartContext } from "../../contexts/CartContext";
 import { CartItem } from "./CartItem";
 
 const Cart = () => {
-  const [cart] = useContext(CartContext);
+  const { cart } = useContext(CartContext);
   const { data, dataLoading } = useQuery(
     gql`
       query Pizzas($ids: [Int]!) {
