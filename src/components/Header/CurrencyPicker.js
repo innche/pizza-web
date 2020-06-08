@@ -3,7 +3,7 @@ import { CURRENCY_EUR, CURRENCY_USD } from "../../constants";
 import { CurrencyContext } from "../../contexts/CurrencyContext";
 
 const CurrencyPicker = () => {
-  const [currency, setCurrency] = useContext(CurrencyContext);
+  const { currency, setCurrency } = useContext(CurrencyContext);
 
   const onChange = (e) => {
     setCurrency(e.target.value);

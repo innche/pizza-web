@@ -3,15 +3,15 @@ import { CURRENCY_EUR } from "../../constants";
 import { CurrencyContext } from "../../contexts/CurrencyContext";
 
 export const PriceTag = ({ price }) => {
-  const [currrency] = useContext(CurrencyContext);
+  const { currency } = useContext(CurrencyContext);
 
   return (
     <div>
       <span className="f-subheadline">
-        {currrency === CURRENCY_EUR ? price.priceEUR : price.priceUSD}
+        {currency === CURRENCY_EUR ? price.priceEUR : price.priceUSD}
       </span>
       <span className="dib mt2 f2 v-top">
-        {currrency === CURRENCY_EUR ? " €" : " $"}
+        {currency === CURRENCY_EUR ? " €" : " $"}
       </span>
     </div>
   );

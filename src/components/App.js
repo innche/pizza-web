@@ -1,21 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { CURRENCY_EUR } from "../constants";
 import { CartContext } from "../contexts/CartContext";
 import { CurrencyContext } from "../contexts/CurrencyContext";
 import { useCartState } from "../hooks/useCartState";
+import { useCurrencyState } from "../hooks/useCurrencyState";
 import Cart from "./Cart";
 import Catalog from "./Catalog";
 import Header from "./Header";
 
 function App() {
-  const [currency, setCurrency] = useState(CURRENCY_EUR);
   const cartHandlers = useCartState({});
+  const currencyHandlers = useCurrencyState({});
 
   return (
     <BrowserRouter>
       <CartContext.Provider value={cartHandlers}>
-        <CurrencyContext.Provider value={[currency, setCurrency]}>
+        <CurrencyContext.Provider value={currencyHandlers}>
           <Header />
           <Switch>
             <Route exact path="/" component={Catalog} />
