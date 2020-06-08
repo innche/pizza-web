@@ -73,11 +73,11 @@ const Cart = () => {
               className="cart-price"
               price={{
                 priceEUR: data.pizzas.reduce(
-                  (sum, item) => sum + item.price.priceEUR,
+                  (sum, item) => sum + item.price.priceEUR * cart[item.id],
                   data.deliveryPrice.price.priceEUR
                 ),
                 priceUSD: data.pizzas.reduce(
-                  (sum, item) => sum + item.price.priceUSD,
+                  (sum, item) => sum + item.price.priceUSD * cart[item.id],
                   data.deliveryPrice.price.priceUSD
                 )
               }}
